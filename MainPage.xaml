@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Workout.ViewModel"
+             x:DataType="viewmodel:MainViewModel"
+             Title="{Binding Title}"
              x:Class="Workout.MainPage">
 
-    <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            Spacing="5"
+            Padding="0"
+            VerticalOptions="StartAndExpand">
 
             <Image
                 Source="home_image.jpg"
                 SemanticProperties.Description="Dumbell Image"
-                HeightRequest="200"
                 HorizontalOptions="Center" />
 
             <Label
@@ -28,6 +29,4 @@
                 HorizontalOptions="Center" />
 
         </VerticalStackLayout>
-    </ScrollView>
-
 </ContentPage>
