@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Workout.ViewModel"
+             xmlns:model="clr-namespace:Workout.Model"
+             x:DataType="viewmodel:ExerciceListViewModel"
+             Title="{Binding Title}"
+             x:Class="Workout.ExerciceListView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <CollectionView Grid.Row="0" Margin="10" ItemsSource="{Binding Exercices}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Exercice">
+                    <VerticalStackLayout Spacing="5" Margin="10">
+                        <Label Text="{Binding Name}" FontSize="Medium"/>
+                        <Label Text="{Binding Description}" FontSize="Small"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Refresh"
+                Command="{Binding GetExerciesCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Margin="10">
+        </Button>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="2"
+                           IsRunning="{Binding IsBusy}"/>
+    </Grid>
+    
+</ContentPage>
