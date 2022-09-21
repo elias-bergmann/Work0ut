@@ -10,21 +10,22 @@
 
     <VerticalStackLayout
         Margin="0"
-        Padding="15"
+        Padding="20"
         Spacing="5"
-        VerticalOptions="StartAndExpand">
+        VerticalOptions="CenterAndExpand">
 
         <Label
             FontSize="28"
             HorizontalOptions="Center"
             SemanticProperties.HeadingLevel="Level1"
             Text="Let's Start the workout" />
-        
+
         <Button
             x:Name="StartBtn"
+            Margin="20"
             Clicked="OnStartBtnClicked"
-            HorizontalOptions="Center"
-            Text="Start" />
+            Text="Start"
+            VerticalOptions="Center" />
 
     </VerticalStackLayout>
 </ContentPage>

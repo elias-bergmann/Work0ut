@@ -24,8 +24,8 @@ namespace Workout.Service
                 return exerciceList;
             }
 
-            var url = "https://github.com/elias-bergmann/Workout/blob/master/ExerciceList.json";
-            var response = await httpClient.GetAsync(url);
+            string url = "https://raw.githubusercontent.com/elias-bergmann/Resources/main/Json/exercice-list.json?raw=true";
+            HttpResponseMessage response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
