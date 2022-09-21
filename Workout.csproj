@@ -32,12 +32,12 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#0D1B2A" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#0D1B2A" />
 
-    <!-- Splash Screen -->
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#0D1B2A"  BaseSize="456,456"/>
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#0D1B2A" BaseSize="128,128" />
 
-    <!-- Images -->
+		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 
 		<!-- Custom Fonts -->
@@ -53,13 +53,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="View\ExerciceListView.xaml.cs">
-	    <DependentUpon>ExerciceListView.xaml</DependentUpon>
+	  <Compile Update="View\ExerciceListPage.xaml.cs">
+	    <DependentUpon>ExerciceListPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\ExerciceListView.xaml">
+	  <MauiXaml Update="View\ExerciceListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

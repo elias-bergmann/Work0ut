@@ -12,7 +12,5 @@ namespace Workout.ViewModel
         {
             Title = "Home";
         }
-
-
     }
 }

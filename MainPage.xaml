@@ -1,32 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:Workout.ViewModel"
-             x:DataType="viewmodel:MainViewModel"
-             Title="{Binding Title}"
-             x:Class="Workout.MainPage">
+<ContentPage
+    x:Class="Workout.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:Workout.ViewModel"
+    Title="{Binding Title}"
+    x:DataType="viewmodel:MainViewModel"
+    NavigationPage.HasNavigationBar="False">
 
-        <VerticalStackLayout
-            Spacing="5"
-            Padding="0"
-            VerticalOptions="StartAndExpand">
+    <VerticalStackLayout
+        Margin="0"
+        Padding="15"
+        Spacing="5"
+        VerticalOptions="StartAndExpand">
 
-            <Image
-                Source="home_image.jpg"
-                SemanticProperties.Description="Dumbell Image"
-                HorizontalOptions="Center" />
+        <Label
+            FontSize="28"
+            HorizontalOptions="Center"
+            SemanticProperties.HeadingLevel="Level1"
+            Text="Let's Start the workout" />
+        
+        <Button
+            x:Name="StartBtn"
+            Clicked="OnStartBtnClicked"
+            HorizontalOptions="Center"
+            Text="Start" />
 
-            <Label
-                Text="Let's Start the workout"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="StartBtn"
-                Text="Start"
-                Clicked="OnStartBtnClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
+    </VerticalStackLayout>
 </ContentPage>
