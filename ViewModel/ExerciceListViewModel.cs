@@ -15,7 +15,10 @@ namespace Workout.ViewModel
         {
             Title = "Exercices List";
             this.exerciceService = exerciceService;
+            Task.Run(async () => { await GetExerciesAsync(); });
         }
+
+        
 
         public ObservableCollection<Exercice> Exercices { get; } = new();
 

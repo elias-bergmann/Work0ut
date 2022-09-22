@@ -11,8 +11,5 @@ public class MainActivity : MauiAppCompatActivity
     protected override void OnCreate(Bundle savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
-        Platform.Init(this, savedInstanceState);
-
-        this.Window.AddFlags(WindowManagerFlags.Fullscreen);
     }
 }

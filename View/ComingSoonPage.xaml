@@ -1,25 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Workout.MainPage"
+    x:Class="Workout.ComingSoonPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewmodel="clr-namespace:Workout.ViewModel"
-    Background="{DynamicResource Primary}"
-    x:DataType="viewmodel:MainViewModel"
-    NavigationPage.HasNavigationBar="False">
+    Background="{DynamicResource Primary}">
 
-    <VerticalStackLayout
+    <Grid>
+
+        <VerticalStackLayout
         Margin="0"
         Padding="20"
         Spacing="5"
         VerticalOptions="CenterAndExpand">
 
-        <Label
+            <Label
             FontSize="28"
             HorizontalOptions="Center"
             SemanticProperties.HeadingLevel="Level1"
-            Text="Let's Start the workout" />
+            Text="Coming Soon" />
+
+        </VerticalStackLayout>
+        
+    </Grid>
 
 
-    </VerticalStackLayout>
 </ContentPage>
