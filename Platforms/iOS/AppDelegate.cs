@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Workout;
+namespace Work0ut;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

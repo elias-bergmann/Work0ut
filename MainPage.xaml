@@ -1,25 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Workout.MainPage"
+    x:Class="Work0ut.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewmodel="clr-namespace:Workout.ViewModel"
+    xmlns:viewmodel="clr-namespace:Work0ut.ViewModel"
     Background="{DynamicResource Primary}"
     x:DataType="viewmodel:MainViewModel"
     NavigationPage.HasNavigationBar="False">
 
-    <VerticalStackLayout
+    <Grid
         Margin="0"
-        Padding="20"
-        Spacing="5"
-        VerticalOptions="CenterAndExpand">
+        VerticalOptions="FillAndExpand"
+        Padding="40">
 
-        <Label
-            FontSize="28"
-            HorizontalOptions="Center"
-            SemanticProperties.HeadingLevel="Level1"
-            Text="Let's Start the workout" />
+        <Image VerticalOptions="Start" HeightRequest="180" Source="home_image"/>
 
+        <Grid VerticalOptions="Center" Margin="0,180,0,0" HorizontalOptions="Center" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-    </VerticalStackLayout>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <ImageButton WidthRequest="75" CornerRadius="27"  Padding="12" HeightRequest="75" Source="add.svg"></ImageButton>
+            <Label Grid.Column="1" FontSize="Large" VerticalTextAlignment="Center" TextColor="{DynamicResource Secondary}" Text="New workout"/>
+
+            <ImageButton Grid.Row="2" WidthRequest="75" CornerRadius="27"  Padding="11" HeightRequest="75" Source="download.svg"></ImageButton>
+            <Label Grid.Row="2" Grid.Column="1" FontSize="Large" VerticalTextAlignment="Center" TextColor="{DynamicResource Secondary}" Text="Download workout"/>
+
+            <Button Grid.Row="4" Grid.ColumnSpan="2" CornerRadius="27" BackgroundColor="#9CACC1" TextColor="{DynamicResource Primary}" FontSize="Large"  Padding="11" HeightRequest="75" Text="Continue"></Button>
+
+        </Grid>
+
+    </Grid>
 </ContentPage>

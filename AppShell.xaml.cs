@@ -1,4 +1,4 @@
-﻿namespace Workout;
+﻿namespace Work0ut;
 
 public partial class AppShell : Shell
 {

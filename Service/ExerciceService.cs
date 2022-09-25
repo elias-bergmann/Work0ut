@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
-using Workout.Model;
+using Work0ut.Model;
 
-namespace Workout.Service
+namespace Work0ut.Service
 {
     public class ExerciceService
     {

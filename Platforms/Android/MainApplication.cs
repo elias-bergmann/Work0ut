@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Workout;
+namespace Work0ut;
 
 [Application]
 public class MainApplication : MauiApplication

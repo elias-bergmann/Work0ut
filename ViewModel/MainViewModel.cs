@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Workout.ViewModel
+namespace Work0ut.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {

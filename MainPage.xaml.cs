@@ -1,6 +1,6 @@
-﻿using Workout.ViewModel;
+﻿using Work0ut.ViewModel;
 
-namespace Workout;
+namespace Work0ut;
 
 public partial class MainPage : ContentPage
 {

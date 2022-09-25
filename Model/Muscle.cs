@@ -1,4 +1,4 @@
-﻿namespace Workout.Model
+﻿namespace Work0ut.Model
 {
     public class Muscle
     {

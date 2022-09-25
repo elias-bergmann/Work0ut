@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Workout;
+namespace Work0ut;
 
 public class Program
 {

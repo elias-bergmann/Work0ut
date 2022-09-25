@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Workout.Model
+namespace Work0ut.Model
 {
     public class Exercice
     {

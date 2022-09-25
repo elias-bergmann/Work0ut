@@ -1,7 +1,7 @@
-﻿using Workout.Service;
-using Workout.ViewModel;
+﻿using Work0ut.Service;
+using Work0ut.ViewModel;
 
-namespace Workout;
+namespace Work0ut;
 
 public partial class ExerciceListPage : ContentPage
 {

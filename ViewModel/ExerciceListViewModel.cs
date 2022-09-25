@@ -1,11 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
-using Workout.Model;
-using Workout.Service;
+using Work0ut.Model;
+using Work0ut.Service;
 using CommunityToolkit;
 using CommunityToolkit.Mvvm.Input;
 
-namespace Workout.ViewModel
+namespace Work0ut.ViewModel
 {
     public partial class ExerciceListViewModel : BaseViewModel
     {
