@@ -4,6 +4,7 @@ using Work0ut.Model;
 using Work0ut.Service;
 using CommunityToolkit;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Work0ut.ViewModel
 {
@@ -17,8 +18,6 @@ namespace Work0ut.ViewModel
             this.exerciceService = exerciceService;
             Task.Run(async () => { await GetExerciesAsync(); });
         }
-
-        
 
         public ObservableCollection<Exercice> Exercices { get; } = new();
 

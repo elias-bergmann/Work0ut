@@ -17,12 +17,15 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<ExerciceService>();
+		builder.Services.AddSingleton<WorkoutService>();
 
 		builder.Services.AddSingleton<MainViewModel>();
 		builder.Services.AddSingleton<ExerciceListViewModel>();
+		builder.Services.AddSingleton<WorkoutViewModel>();
 
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<ExerciceListPage>();
+		builder.Services.AddSingleton<WorkoutPage>();
 
 		return builder.Build();
 	}

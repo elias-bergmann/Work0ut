@@ -4,9 +4,11 @@ using Work0ut.Model;
 using Work0ut.Service;
 using CommunityToolkit;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Work0ut.ViewModel
 {
+
     public partial class WorkoutViewModel : BaseViewModel
     {
         WorkoutService workoutService;
@@ -17,8 +19,10 @@ namespace Work0ut.ViewModel
             Task.Run(async () => { await GetWorkoutAsync(); });
         }
 
-        
-        public ObservableCollection<Set> Sets { get; } = new();
+
+        [ObservableProperty]
+        Workout workout;
+
 
         [RelayCommand]
         async Task GetWorkoutAsync()
@@ -29,17 +33,7 @@ namespace Work0ut.ViewModel
             {
                 IsBusy = true;
 
-                Model.Workout workout = await workoutService.GetWorkout();
-
-                if (Sets.Count != 0)
-                {
-                    Sets.Clear();
-                }
-
-                foreach (Set set in workout.Sets)
-                {
-                    Sets.Add(set);
-                }
+                Workout = await workoutService.GetWorkout();
             }
             catch(Exception ex) 
             { 

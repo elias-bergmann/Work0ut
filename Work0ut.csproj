@@ -54,7 +54,9 @@
 	  <None Remove="Resources\Images\home.svg" />
 	  <None Remove="Resources\Images\home_image.svg" />
 	  <None Remove="Resources\Images\pen.svg" />
+	  <None Remove="Resources\Images\play_button.svg" />
 	  <None Remove="Resources\Images\user.svg" />
+	  <None Remove="Resources\Images\web.svg" />
 	  <None Remove="Resources\Images\workout.svg" />
 	</ItemGroup>
 

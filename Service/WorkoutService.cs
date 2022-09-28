@@ -19,13 +19,14 @@ namespace Work0ut.Service
 
         public async Task<Model.Workout> GetWorkout()
         {
-            Model.Workout workout = null;
+            Workout workout = null;
+
             string url = "https://raw.githubusercontent.com/elias-bergmann/Resources/main/Json/workout.json?raw=true";
             HttpResponseMessage response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
-                workout = await response.Content.ReadFromJsonAsync<Model.Workout>();
+                workout = await response.Content.ReadFromJsonAsync<Workout>();
             }
 
             return workout;

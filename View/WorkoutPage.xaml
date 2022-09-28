@@ -11,29 +11,25 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+        <Label FontSize="Large" TextColor="{DynamicResource Secondary}" Text="{Binding Workout.Name}" />
+
         <CollectionView
-            Grid.Row="0"
+            Grid.Row="1"
             Margin="20"
-            ItemsSource="{Binding Sets}">
+            ItemsSource="{Binding Workout.Sets}">
 
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Exercice">
+                <DataTemplate x:DataType="model:Set">
 
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-
-                        <Image
-                            Grid.Column="0"
-                            Margin="10"
-                            HeightRequest="36"
-                            Source="{Binding IconUrl}"
-                            WidthRequest="36" />
 
                         <VerticalStackLayout
                             Grid.Column="1"
@@ -42,11 +38,7 @@
                             Spacing="10"
                             VerticalOptions="StartAndExpand">
 
-                            <Label FontSize="Large" Text="{Binding Name}" />
-                            <Label
-                                FontSize="Small"
-                                LineBreakMode="WordWrap"
-                                Text="{Binding Description}" />
+                            <Label FontSize="Large" Text="{Binding ExerciceName}" />
 
                         </VerticalStackLayout>
                     </Grid>
