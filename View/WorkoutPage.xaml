@@ -8,9 +8,9 @@
     Background="{DynamicResource Primary}"
     x:DataType="viewmodel:WorkoutViewModel">
 
-    <Grid>
+    <Grid Padding="40">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -19,28 +19,38 @@
 
         <CollectionView
             Grid.Row="1"
-            Margin="20"
+            HorizontalOptions="Fill"
+            Margin="0,20"
             ItemsSource="{Binding Workout.Sets}">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Set">
 
-                    <Grid>
+                    <Grid Margin="0,20">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <VerticalStackLayout
-                            Grid.Column="1"
-                            Margin="10"
-                            HorizontalOptions="Center"
-                            Spacing="10"
-                            VerticalOptions="StartAndExpand">
+                        <Label Grid.Column="0" FontSize="Medium" Text="{Binding ExerciceName}" />
 
-                            <Label FontSize="Large" Text="{Binding ExerciceName}" />
-
-                        </VerticalStackLayout>
+                        <CollectionView Grid.Column="1"  ItemsSource="{Binding Series}" HorizontalOptions="Fill">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:Serie">
+                                    
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" >
+                                        <Label FontSize="Small" Grid.Column="0" Text="{Binding NumberOfReps}" />
+                                        <Label FontSize="Small" Grid.Column="1" Text=" x " />
+                                        <HorizontalStackLayout Grid.Column="2" >
+                                            <Label FontSize="Small" Text="{Binding Weight}" />
+                                            <Image Source="weight.svg" Margin="5,0" HeightRequest="10"/>
+                                        </HorizontalStackLayout>
+                                    </StackLayout>
+                                    
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
