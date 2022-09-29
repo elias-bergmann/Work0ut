@@ -54,6 +54,7 @@
 	  <None Remove="Resources\Images\download.svg" />
 	  <None Remove="Resources\Images\home.svg" />
 	  <None Remove="Resources\Images\home_image.svg" />
+	  <None Remove="Resources\Images\kilogram.svg" />
 	  <None Remove="Resources\Images\pen.svg" />
 	  <None Remove="Resources\Images\play_button.svg" />
 	  <None Remove="Resources\Images\user.svg" />

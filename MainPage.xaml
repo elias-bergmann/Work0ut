@@ -29,13 +29,13 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <ImageButton WidthRequest="65" CornerRadius="21" Background="{DynamicResource Primary}" BorderColor="{DynamicResource Secondary}" BorderWidth="1"  Padding="10" HeightRequest="65" Source="add.svg"></ImageButton>
+            <ImageButton WidthRequest="65" CornerRadius="22" Background="{DynamicResource Primary}" BorderColor="{DynamicResource Secondary}" BorderWidth="1"  Padding="10" HeightRequest="65" Source="add.svg"></ImageButton>
             <Label Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" TextColor="{DynamicResource Secondary}" Text="New workout"/>
 
-            <ImageButton Grid.Row="2" WidthRequest="65" Background="{DynamicResource Primary}" BorderColor="{DynamicResource Secondary}" BorderWidth="1" CornerRadius="21"  Padding="10" HeightRequest="65" Source="web.svg"></ImageButton>
+            <ImageButton Grid.Row="2" WidthRequest="65" Background="{DynamicResource Primary}" BorderColor="{DynamicResource Secondary}" BorderWidth="1" CornerRadius="22"  Padding="10" HeightRequest="65" Source="web.svg"></ImageButton>
             <Label Grid.Row="2" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" TextColor="{DynamicResource Secondary}" Text="Download workout"/>
 
-            <ImageButton  Grid.Row="4" WidthRequest="70"  CornerRadius="23" Command="{Binding GoToWorkoutPageCommand}" Padding="12,10,10,10" BorderWidth="1" BorderColor="{DynamicResource Secondary}"  HeightRequest="70" Source="play_button.svg"></ImageButton>
+            <ImageButton  Grid.Row="4" WidthRequest="65"  CornerRadius="22" Command="{Binding GoToWorkoutPageCommand}" Padding="10,10,10,10" BorderWidth="1" BorderColor="{DynamicResource Secondary}"  HeightRequest="65" Source="play_button.svg"></ImageButton>
             <Label Grid.Row="4" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" TextColor="{DynamicResource Secondary}" Text="Continue"/>
 
         </Grid>

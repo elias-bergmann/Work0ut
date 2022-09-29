@@ -3,8 +3,9 @@
     x:Class="Work0ut.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Work0ut"
-    Shell.NavBarIsVisible="False"
+    xmlns:local="clr-namespace:Work0ut"    
+    UnselectedColor="{DynamicResource Tertiary}"
+    BackgroundColor="{DynamicResource Primary}"
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
@@ -12,14 +13,12 @@
             Title="Home"
             Icon="home.svg"
             ContentTemplate="{DataTemplate local:MainPage}" />
+        
         <ShellContent
             Title="Exercices"
-            Icon="workout.svg"
+            Icon="workout.svg"          
             ContentTemplate="{DataTemplate local:ExerciceListPage}" />
-        <ShellContent
-            Title="Calendar"
-            Icon="calendar.svg"
-            ContentTemplate="{DataTemplate local:ComingSoonPage}"/>
+
         <ShellContent
             Title="User"
             Icon="user.svg"
