@@ -17,7 +17,8 @@ namespace Work0ut.Service
         }
 
         List<Exercice> exerciceList = new();
-        public async Task<List<Exercice>> GetExercices()
+
+        public async Task<List<Exercice>> FetchExercices()
         {
             if (exerciceList?.Count > 0)
             {
@@ -33,6 +34,11 @@ namespace Work0ut.Service
             }
 
             return exerciceList;
+        }
+
+        public Exercice GetExercieByName(string exerciceName)
+        {
+            return exerciceList.FirstOrDefault(x => x.Name == exerciceName);
         }
     }
 }

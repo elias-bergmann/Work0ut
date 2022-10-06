@@ -29,7 +29,7 @@ namespace Work0ut.ViewModel
             try
             {
                 IsBusy = true;
-                List<Exercice> exercices = await exerciceService.GetExercices();
+                List<Exercice> exercices = await exerciceService.FetchExercices();
 
                 if (Exercices.Count != 0)
                 {

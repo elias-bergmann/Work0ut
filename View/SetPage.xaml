@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Work0ut.SetPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:Work0ut.Model"
+    xmlns:viewmodel="clr-namespace:Work0ut.ViewModel"
+    xmlns:page="clr-namespace:Work0ut"
+    x:DataType="page:SetPage"
+    Title="{Binding Set.ExerciceName}"
+    Background="{DynamicResource Primary}">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Image Source="{Binding Exercice.IconUrl}" HeightRequest="80"/>
+        
+        <CollectionView Grid.Row="1"
+            x:Name="serieCollectionView"
+            Margin="0,10"            
+            ItemsSource="{Binding Set.Series}">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Serie">
+
+                    <Grid>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                        
+
+                            <Border Background="{DynamicResource Secondary}" Grid.Column="0" StrokeThickness="1" Stroke="{DynamicResource Tertiary}" Margin="0,10" Padding="5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20" />
+                                </Border.StrokeShape>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,2" >
+                                    <Image Source="repetition.svg" HeightRequest="25" Margin="5"/>
+                                    <Label FontSize="Large" VerticalOptions="Center" Margin="5" TextColor="{DynamicResource Primary}"  Grid.Column="0" Text="{Binding NumberOfReps}" />
+                                </StackLayout>
+                            </Border>
+
+
+                            <Label FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1" Margin="5" TextColor="{DynamicResource Secondary}"  Text="   X   " />
+
+                            <Border Background="{DynamicResource Secondary}" Grid.Column="2" HorizontalOptions="Center" StrokeThickness="1" Stroke="{DynamicResource Tertiary}" Margin="0,10" Padding="5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20" />
+                                </Border.StrokeShape>
+                                <StackLayout Orientation="Horizontal"  Margin="0,2" >
+                                    <Label FontSize="Large" VerticalOptions="Center" Margin="5" TextColor="{DynamicResource Primary}"  Grid.Column="0" Text="{Binding Weight}" />
+                                    <Label FontSize="Large" VerticalOptions="Center" Margin="5" TextColor="{DynamicResource Primary}"  Grid.Column="0" Text="kg" />
+                                    <Image Source="kilogram.svg" HeightRequest="25" Margin="5"/>
+                                </StackLayout>
+                            </Border>
+                            
+                        </Grid>
+                        
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator
+            HorizontalOptions="FillAndExpand"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="CenterAndExpand" />
+
+    </Grid>
+
+
+</ContentPage>

@@ -26,6 +26,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<ExerciceListPage>();
 		builder.Services.AddSingleton<WorkoutPage>();
+		builder.Services.AddSingleton<SetPage>();
 
 		return builder.Build();
 	}

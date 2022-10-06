@@ -57,6 +57,7 @@
 	  <None Remove="Resources\Images\kilogram.svg" />
 	  <None Remove="Resources\Images\pen.svg" />
 	  <None Remove="Resources\Images\play_button.svg" />
+	  <None Remove="Resources\Images\repetition.svg" />
 	  <None Remove="Resources\Images\user.svg" />
 	  <None Remove="Resources\Images\web.svg" />
 	  <None Remove="Resources\Images\workout.svg" />
@@ -74,6 +75,9 @@
 	  <Compile Update="View\WorkoutPage.xaml.cs">
 	    <DependentUpon>WorkoutPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\SetPage.xaml.cs">
+	    <DependentUpon>SetPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\ExerciceListPage.xaml.cs">
 	    <DependentUpon>ExerciceListPage.xaml</DependentUpon>
 	  </Compile>
@@ -84,6 +88,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\WorkoutPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\SetPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ExerciceListPage.xaml">

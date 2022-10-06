@@ -5,6 +5,7 @@ using Work0ut.Service;
 using CommunityToolkit;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Text.Json;
 
 namespace Work0ut.ViewModel
 {
@@ -23,8 +24,17 @@ namespace Work0ut.ViewModel
         [ObservableProperty]
         Workout workout;
 
-
         [RelayCommand]
+        async Task DisplaySet(object parameter)
+        {
+            Set set = parameter as Set;
+            var navigationParameter = new Dictionary<string, object>
+            {
+                { "Set", set }
+            };
+            await Shell.Current.GoToAsync(nameof(SetPage),navigationParameter);
+        }
+
         async Task GetWorkoutAsync()
         {
             if(IsBusy) return;
