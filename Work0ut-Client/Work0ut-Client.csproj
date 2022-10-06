@@ -106,4 +106,8 @@
 	  <Folder Include="Resources\Raw\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Work0ut-Common\Work0ut-Common\Work0ut-Common.csproj" />
+	</ItemGroup>
+
 </Project>
