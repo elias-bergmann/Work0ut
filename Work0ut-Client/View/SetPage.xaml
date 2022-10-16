@@ -3,7 +3,7 @@
     x:Class="Work0ut.SetPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:model="clr-namespace:Work0ut.Model"
+    xmlns:model="clr-namespace:Work0ut.Model;assembly=Work0ut-Common"
     xmlns:viewmodel="clr-namespace:Work0ut.ViewModel"
     xmlns:page="clr-namespace:Work0ut"
     x:DataType="page:SetPage"

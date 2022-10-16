@@ -1,10 +1,13 @@
 using Work0ut.Model;
+using Work0ut.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.Configure<Wor0utDatabaseSettings>(
-    builder.Configuration.GetSection("Wor0utDatabase"));
+builder.Services.Configure<Work0utDatabaseSettings>(
+    builder.Configuration.GetSection("Work0utDatabase"));
+
+builder.Services.AddSingleton<DatabaseConnectionService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

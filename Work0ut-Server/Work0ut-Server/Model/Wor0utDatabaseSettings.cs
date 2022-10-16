@@ -1,6 +1,6 @@
 ﻿namespace Work0ut.Model
 {
-    public class Wor0utDatabaseSettings
+    public class Work0utDatabaseSettings
     {
         public string ConnectionString { get; set; } = null!;
 

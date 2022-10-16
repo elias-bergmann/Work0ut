@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,12 @@ namespace Work0ut.Model
 {
     public partial class Exercice
     {
-        public string Name { get; set; }
-        public string Description { get; set; } 
-        public string IconUrl { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string IconUrl { get; set; } = string.Empty;
 
         //public List<Muscle> PrimaryTargetedMuscle { get; set; }
         //public List<Muscle> OtherTargetedMuscle { get; set; }

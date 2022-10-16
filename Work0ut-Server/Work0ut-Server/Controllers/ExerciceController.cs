@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Work0ut.Model;
+using Work0ut.Service;
 using Work0ut.Utils;
 
 namespace Work0ut.Controllers
@@ -8,18 +9,64 @@ namespace Work0ut.Controllers
     [Route("[controller]")]
     public class ExerciceController : ControllerBase
     {
+        private readonly DatabaseConnectionService _databaseConnectionService;
 
-        private readonly ILogger<ExerciceController> _logger;
+        public ExerciceController(DatabaseConnectionService booksService) => _databaseConnectionService = booksService;
 
-        public ExerciceController(ILogger<ExerciceController> logger)
+        [HttpGet]
+        public async Task<List<Exercice>> Get() => await _databaseConnectionService.GetAsync();
+
+        [HttpGet("{id:length(24)}")]
+        public async Task<ActionResult<Exercice>> Get(string id)
         {
-            _logger = logger;
+            var exercice = await _databaseConnectionService.GetAsync(id);
+
+            if (exercice is null)
+            {
+                return NotFound();
+            }
+
+            return exercice;
         }
 
-        [HttpGet(Name = Methods.GetExercicesName)]
-        public IEnumerable<Exercice> Get()
+        [HttpPost]
+        public async Task<IActionResult> Post(Exercice newExercice)
         {
-            return new List<Exercice>();
+            await _databaseConnectionService.CreateAsync(newExercice);
+
+            return CreatedAtAction(nameof(Get), new { id = newExercice.Id }, newExercice);
+        }
+
+        [HttpPut("{id:length(24)}")]
+        public async Task<IActionResult> Update(string id, Exercice updatedExercice)
+        {
+            var exercice = await _databaseConnectionService.GetAsync(id);
+
+            if (exercice is null)
+            {
+                return NotFound();
+            }
+
+            updatedExercice.Id = exercice.Id;
+
+            await _databaseConnectionService.UpdateAsync(id, updatedExercice);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id:length(24)}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var exercice = await _databaseConnectionService.GetAsync(id);
+
+            if (exercice is null)
+            {
+                return NotFound();
+            }
+
+            await _databaseConnectionService.RemoveAsync(id);
+
+            return NoContent();
         }
     }
 }

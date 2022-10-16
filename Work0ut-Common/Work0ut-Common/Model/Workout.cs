@@ -8,12 +8,10 @@ namespace Work0ut.Model
 {
     public class Workout
     {
-        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public string Name { get; set; }
+        public string Description { get; set; } = string.Empty;
 
-        public string Description { get; set; }
-
-        public List<Set> Sets { get; set; }
+        public List<Set>? Sets { get; set; }
     }
 }
