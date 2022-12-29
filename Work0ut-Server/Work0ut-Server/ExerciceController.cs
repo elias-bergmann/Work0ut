@@ -6,17 +6,19 @@ using Work0ut.Utils;
 namespace Work0ut.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route(Utils.Controllers.Exercice_ControllerName + "/[action]")]
     public class ExerciceController : ControllerBase
     {
         private readonly DatabaseConnectionService _databaseConnectionService;
 
-        public ExerciceController(DatabaseConnectionService booksService) => _databaseConnectionService = booksService;
+        public ExerciceController(DatabaseConnectionService databaseService) => _databaseConnectionService = databaseService;
 
         [HttpGet]
+        [ActionName(Methods.GetExercicesList_MethodName)]
         public async Task<List<Exercice>> Get() => await _databaseConnectionService.GetAsync();
 
         [HttpGet("{id:length(24)}")]
+        [ActionName(Methods.GetExerciceFromId_MethodName)]
         public async Task<ActionResult<Exercice>> Get(string id)
         {
             var exercice = await _databaseConnectionService.GetAsync(id);
@@ -30,6 +32,7 @@ namespace Work0ut.Controllers
         }
 
         [HttpPost]
+        [ActionName(Methods.PostNewExercice_MethodName)]
         public async Task<IActionResult> Post(Exercice newExercice)
         {
             await _databaseConnectionService.CreateAsync(newExercice);
@@ -38,6 +41,7 @@ namespace Work0ut.Controllers
         }
 
         [HttpPut("{id:length(24)}")]
+        [ActionName(Methods.PutExistingExercice_MethodName)]
         public async Task<IActionResult> Update(string id, Exercice updatedExercice)
         {
             var exercice = await _databaseConnectionService.GetAsync(id);
@@ -55,6 +59,7 @@ namespace Work0ut.Controllers
         }
 
         [HttpDelete("{id:length(24)}")]
+        [ActionName(Methods.DeleteExerciceFromId_MethodName)]
         public async Task<IActionResult> Delete(string id)
         {
             var exercice = await _databaseConnectionService.GetAsync(id);

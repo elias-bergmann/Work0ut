@@ -17,11 +17,10 @@ namespace Work0ut.Service
                 wor0utDatabaseSettings.Value.DatabaseName);
 
             _exercicesCollection = mongoDatabase.GetCollection<Exercice>(wor0utDatabaseSettings.Value.ExercicesCollectionName);
-
         }
 
         public async Task<List<Exercice>> GetAsync() =>
-    await _exercicesCollection.Find(_ => true).ToListAsync();
+            await _exercicesCollection.Find(_ => true).ToListAsync();
 
         public async Task<Exercice?> GetAsync(string id) =>
             await _exercicesCollection.Find(x => x.Id == id).FirstOrDefaultAsync();

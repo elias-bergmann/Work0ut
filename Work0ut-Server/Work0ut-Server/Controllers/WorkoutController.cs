@@ -16,7 +16,7 @@ namespace Work0ut.Controllers
         }
 
 
-        [HttpGet(Name = Methods.GetWorkoutsName)]
+        [HttpGet(Name = Methods.GetWorkoutsList_MethodName)]
         public IEnumerable<Workout> Get()
         {
             return new List<Workout>();

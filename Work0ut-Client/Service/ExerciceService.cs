@@ -5,15 +5,18 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using Work0ut.Model;
+using Work0ut.Utils;
 
 namespace Work0ut.Service
 {
     public class ExerciceService
     {
+        readonly string serverAdress;
         readonly HttpClient httpClient;
         public ExerciceService()
         {
             httpClient = new HttpClient();
+            serverAdress = "http://10.0.2.2:7170";
         }
 
         List<Exercice> exerciceList = new();
@@ -25,7 +28,8 @@ namespace Work0ut.Service
                 return exerciceList;
             }
 
-            string url = "https://raw.githubusercontent.com/elias-bergmann/Resources/main/Json/exercice-list.json?raw=true";
+            string url = serverAdress + "/" + Controllers.Exercice_ControllerName + "/" + Methods.GetExercicesList_MethodName; 
+
             HttpResponseMessage response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)

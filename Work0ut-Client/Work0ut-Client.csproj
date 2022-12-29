@@ -48,6 +48,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
 	  <None Remove="Resources\Fonts\weight.svg" />
 	  <None Remove="Resources\Images\add.svg" />
 	  <None Remove="Resources\Images\calendar.svg" />
@@ -69,6 +70,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Properties\Resources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\ComingSoonPage.xaml.cs">
 	    <DependentUpon>ComingSoonPage.xaml</DependentUpon>
 	  </Compile>
@@ -108,6 +114,13 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Work0ut-Common\Work0ut-Common\Work0ut-Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Properties\Resources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>

@@ -23,7 +23,6 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Set">
-
                     <Grid>
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup Name="CommonStates">
