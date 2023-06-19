@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Work0ut.Model
 {
-    public class Workout
+    public class Program
     {
         public string? Id { get; set; }
 
@@ -14,6 +14,6 @@ namespace Work0ut.Model
 
         public string Description { get; set; } = string.Empty;
 
-        public List<Exercice>? Exercices { get; set; }
+        public List<Workout>? Workouts { get; set; }
     }
 }

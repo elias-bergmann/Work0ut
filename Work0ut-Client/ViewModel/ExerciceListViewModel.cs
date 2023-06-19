@@ -8,43 +8,43 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Work0ut.ViewModel
 {
-    public partial class ExerciceListViewModel : BaseViewModel
+    public partial class MovementListViewModel : BaseViewModel
     {
-        ExerciceService exerciceService;
-        public ExerciceListViewModel(ExerciceService exerciceService) 
+        MovementService movementService;
+        public MovementListViewModel(MovementService movementService) 
 
         {
-            Title = "Exercices List";
-            this.exerciceService = exerciceService;
-            Task.Run(async () => { await GetExerciesAsync(); });
+            Title = "Movements List";
+            this.movementService = movementService;
+            Task.Run(async () => { await GetExercicesAsync(); });
         }
 
-        public ObservableCollection<Exercice> Exercices { get; } = new();
+        public ObservableCollection<Movement> Movements { get; } = new();
 
         [RelayCommand]
-        async Task GetExerciesAsync()
+        async Task GetExercicesAsync()
         {
             if(IsBusy) return;
 
             try
             {
                 IsBusy = true;
-                List<Exercice> exercices = await exerciceService.FetchExercices();
+                List<Movement> exercices = await movementService.GetMovementList();
 
-                if (Exercices.Count != 0)
+                if (Movements.Count != 0)
                 {
-                    Exercices.Clear();
+                    Movements.Clear();
                 }
 
-                foreach (Exercice exercice in exercices)
+                foreach (Movement exercice in exercices)
                 {
-                    Exercices.Add(exercice);
+                    Movements.Add(exercice);
                 }
             }
             catch(Exception ex) 
             { 
                 Debug.WriteLine(ex);
-                await Shell.Current.DisplayAlert("Error !", "Unable to get exercies", "OK");
+                await Shell.Current.DisplayAlert("Error !", "Unable to get Exercices", "OK");
             }
             finally
             {

@@ -3,9 +3,9 @@ using Work0ut.ViewModel;
 
 namespace Work0ut;
 
-public partial class MovementListPage : ContentPage
+public partial class SelectMovementPage : ContentPage
 {
-    public MovementListPage(MovementListViewModel exerciceListViewModel)
+    public SelectMovementPage(MovementListViewModel exerciceListViewModel)
 	{
 		InitializeComponent();
 		BindingContext = exerciceListViewModel;

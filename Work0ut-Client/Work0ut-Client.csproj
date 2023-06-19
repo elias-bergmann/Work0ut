@@ -78,19 +78,31 @@
 	  <Compile Update="View\ComingSoonPage.xaml.cs">
 	    <DependentUpon>ComingSoonPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\CreateWorkoutPage.xaml.cs">
+	    <DependentUpon>CreateWorkoutPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\SelectMovementPage.xaml.cs">
+	    <DependentUpon>SelectMovementPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\WorkoutPage.xaml.cs">
 	    <DependentUpon>WorkoutPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\SetPage.xaml.cs">
 	    <DependentUpon>SetPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="View\ExerciceListPage.xaml.cs">
-	    <DependentUpon>ExerciceListPage.xaml</DependentUpon>
+	  <Compile Update="View\MovementListPage.xaml.cs">
+	    <DependentUpon>MovementListPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="View\ComingSoonPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\CreateWorkoutPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\SelectMovementPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\WorkoutPage.xaml">
@@ -99,7 +111,7 @@
 	  <MauiXaml Update="View\SetPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\ExerciceListPage.xaml">
+	  <MauiXaml Update="View\MovementListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

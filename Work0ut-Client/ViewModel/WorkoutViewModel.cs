@@ -5,6 +5,7 @@ using Work0ut.Service;
 using CommunityToolkit;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Linq;
 using System.Text.Json;
 
 namespace Work0ut.ViewModel
@@ -43,7 +44,7 @@ namespace Work0ut.ViewModel
             {
                 IsBusy = true;
 
-                Workout = await workoutService.GetWorkout();
+                Workout = (await workoutService.GetWorkoutList()).FirstOrDefault();
             }
             catch(Exception ex) 
             { 

@@ -6,6 +6,8 @@
 
         public string DatabaseName { get; set; } = null!;
 
-        public string ExercicesCollectionName { get; set; } = null!;
+        public string MovementCollectionName { get; set; } = null!;
+
+        public string WorkoutsCollectionName { get; set; } = null!;
     }
 }

@@ -15,9 +15,9 @@
             ContentTemplate="{DataTemplate local:MainPage}" />
         
         <ShellContent
-            Title="Exercices"
+            Title="Movements"
             Icon="workout.svg"          
-            ContentTemplate="{DataTemplate local:ExerciceListPage}" />
+            ContentTemplate="{DataTemplate local:MovementListPage}" />
 
         <ShellContent
             Title="User"

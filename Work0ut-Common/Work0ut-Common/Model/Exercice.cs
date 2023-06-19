@@ -10,14 +10,9 @@ namespace Work0ut.Model
 {
     public partial class Exercice
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public string IconUrl { get; set; } = string.Empty;
+        public List<Set> Sets { get; set; } = new List<Set>();
+        public string Comment { get; set; } = string.Empty;
 
-        //public List<Muscle> PrimaryTargetedMuscle { get; set; }
-        //public List<Muscle> OtherTargetedMuscle { get; set; }
     }
 }

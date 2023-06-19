@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Work0ut.WorkoutPage"
+    x:Class="Work0ut.CreateWorkoutPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model="clr-namespace:Work0ut.Model;assembly=Work0ut-Common"
@@ -10,7 +10,7 @@
     x:DataType="viewmodel:WorkoutViewModel">
 
     <Grid Padding="20">
-        
+
         <CollectionView
             x:Name="setsCollectionView"
             Grid.Row="1"  
@@ -22,7 +22,7 @@
             ItemsSource="{Binding Workout.Exercices}">
 
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Set">
+                <DataTemplate x:DataType="model:Exercice">
                     <Grid>
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup Name="CommonStates">
@@ -45,13 +45,13 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label VerticalOptions="Center" TextColor="{DynamicResource Primary}"  Grid.Column="0" FontSize="Medium" Text="{Binding Movement.Name}" />
 
-                                <CollectionView Grid.Column="1"  ItemsSource="{Binding}">
+                                <CollectionView Grid.Column="1"  ItemsSource="{Binding Sets}">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate x:DataType="model:Set">
 
                                             <StackLayout Orientation="Horizontal" Margin="0,2" HorizontalOptions="End" >
+                                                <Label VerticalOptions="Center" TextColor="{DynamicResource Primary}"  Grid.Column="0" FontSize="Medium" Text="{Binding Movement.Name}" />
                                                 <Label FontSize="Small" TextColor="{DynamicResource Primary}"  Grid.Column="0" Text="{Binding NumberOfReps}" />
                                                 <Label FontSize="Small" TextColor="{DynamicResource Primary}"  Grid.Column="1" Text=" x " />
                                                 <HorizontalStackLayout Grid.Column="2" >
@@ -72,6 +72,8 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Button Text="Add Set"/>
 
         <ActivityIndicator
             HorizontalOptions="FillAndExpand"

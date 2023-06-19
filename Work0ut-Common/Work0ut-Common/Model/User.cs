@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Work0ut.Model
 {
-    public class Workout
+    public class User
     {
-        public string? Id { get; set; }
-
         public string Name { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Goal { get; set; } = string.Empty;
 
-        public string Description { get; set; } = string.Empty;
-
-        public List<Exercice>? Exercices { get; set; }
+        public Program? CurrentProgram { get; set; }
     }
 }

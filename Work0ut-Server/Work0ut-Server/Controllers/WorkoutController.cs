@@ -1,25 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
 using Work0ut.Model;
+using Work0ut.Service;
 using Work0ut.Utils;
 
 namespace Work0ut.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route(Utils.Controllers.Workout_ControllerName + "/[action]")]
     public class WorkoutController : ControllerBase
     {
-        private readonly ILogger<WorkoutController> _logger;
+        private readonly DatabaseConnectionService _databaseConnectionService;
 
-        public WorkoutController(ILogger<WorkoutController> logger)
-        {
-            _logger = logger;
-        }
+        public WorkoutController(DatabaseConnectionService databaseService) => _databaseConnectionService = databaseService;
 
 
         [HttpGet(Name = Methods.GetWorkoutsList_MethodName)]
-        public IEnumerable<Workout> Get()
+        public async Task<IEnumerable<Workout>> GetWorkoutsList() => await _databaseConnectionService.GetAllWorkoutAsync();
+
+
+
+        [HttpGet(Name = Methods.GetWorkoutById_MethodName)]
+        public Workout GetWorkoutById()
         {
-            return new List<Workout>();
+            return new Workout();
         }
     }
 }

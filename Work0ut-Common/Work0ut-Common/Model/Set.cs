@@ -2,9 +2,9 @@
 {
     public class Set
     {
-        public string ExerciceName { get; set; } = string.Empty;
-        public List<Serie>? Series { get; set; }
-        public string Comment { get; set; } = string.Empty;
-
+        public Movement Movement { get; set; }
+        public int NumberOfReps { get; set; }
+        public double Weight { get; set; }
+        TimeSpan? RestTime { get; set; }
     }
 }

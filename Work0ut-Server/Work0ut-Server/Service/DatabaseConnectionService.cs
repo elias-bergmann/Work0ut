@@ -6,7 +6,8 @@ namespace Work0ut.Service
 {
     public class DatabaseConnectionService
     {
-        private readonly IMongoCollection<Exercice> _exercicesCollection;
+        private readonly IMongoCollection<Movement> _movementCollection;
+        private readonly IMongoCollection<Workout> _workoutsCollection;
 
         public DatabaseConnectionService(IOptions<Work0utDatabaseSettings> wor0utDatabaseSettings)
         {
@@ -16,22 +17,47 @@ namespace Work0ut.Service
             var mongoDatabase = mongoClient.GetDatabase(
                 wor0utDatabaseSettings.Value.DatabaseName);
 
-            _exercicesCollection = mongoDatabase.GetCollection<Exercice>(wor0utDatabaseSettings.Value.ExercicesCollectionName);
+            _movementCollection = mongoDatabase.GetCollection<Movement>(wor0utDatabaseSettings.Value.MovementCollectionName);
+            _workoutsCollection = mongoDatabase.GetCollection<Workout>(wor0utDatabaseSettings.Value.WorkoutsCollectionName);
         }
 
-        public async Task<List<Exercice>> GetAsync() =>
-            await _exercicesCollection.Find(_ => true).ToListAsync();
+        #region Movements
 
-        public async Task<Exercice?> GetAsync(string id) =>
-            await _exercicesCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        public async Task<List<Movement>> GetAllMovementAsync() =>
+            await _movementCollection.Find(_ => true).ToListAsync();
 
-        public async Task CreateAsync(Exercice newExercice) =>
-            await _exercicesCollection.InsertOneAsync(newExercice);
+        public async Task<Movement?> GetMovementAsync(string id) =>
+            await _movementCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-        public async Task UpdateAsync(string id, Exercice updatedExercice) =>
-            await _exercicesCollection.ReplaceOneAsync(x => x.Id == id, updatedExercice);
+        public async Task CreateMovementAsync(Movement newMovement) =>
+            await _movementCollection.InsertOneAsync(newMovement);
 
-        public async Task RemoveAsync(string id) =>
-            await _exercicesCollection.DeleteOneAsync(x => x.Id == id);
+        public async Task UpdateMovementAsync(string id, Movement updatedMovement) =>
+            await _movementCollection.ReplaceOneAsync(x => x.Id == id, updatedMovement);
+
+        public async Task RemoveMovementAsync(string id) =>
+            await _movementCollection.DeleteOneAsync(x => x.Id == id);
+
+        #endregion
+
+        #region Workout
+
+        public async Task<List<Workout>> GetAllWorkoutAsync() =>
+            await _workoutsCollection.Find(_ => true).ToListAsync();
+
+        public async Task<Workout?> GetWorkoutAsync(string id) =>
+            await _workoutsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+
+        public async Task CreateWorkoutAsync(Workout newWorkout) =>
+            await _workoutsCollection.InsertOneAsync(newWorkout);
+
+        public async Task UpdateWorkoutAsync(string id, Workout updatedWorkout) =>
+            await _workoutsCollection.ReplaceOneAsync(x => x.Id == id, updatedWorkout);
+
+        public async Task RemoveWorkoutAsync(string id) =>
+            await _workoutsCollection.DeleteOneAsync(x => x.Id == id);
+
+#       endregion
+
     }
 }

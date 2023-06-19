@@ -9,40 +9,91 @@ using Work0ut.Utils;
 
 namespace Work0ut.Service
 {
-    public class ExerciceService
+    public class MovementService
     {
-        readonly string serverAdress;
+        private const string ServerAdress = "http://10.0.2.2:7170";
         readonly HttpClient httpClient;
-        public ExerciceService()
+        public MovementService()
         {
             httpClient = new HttpClient();
-            serverAdress = "http://10.0.2.2:7170";
         }
 
-        List<Exercice> exerciceList = new();
+        List<Movement> movementList = new();
 
-        public async Task<List<Exercice>> FetchExercices()
+        public async Task<List<Movement>> GetMovementList()
         {
-            if (exerciceList?.Count > 0)
+            if (movementList?.Count > 0)
             {
-                return exerciceList;
+                return movementList;
             }
 
-            string url = serverAdress + "/" + Controllers.Exercice_ControllerName + "/" + Methods.GetExercicesList_MethodName; 
+            string url = ServerAdress + "/" + Controllers.Movement_ControllerName + "/" + Methods.GetMovementList_MethodName; 
 
             HttpResponseMessage response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
-                exerciceList = await response.Content.ReadFromJsonAsync<List<Exercice>>();
+                movementList = await response.Content.ReadFromJsonAsync<List<Movement>>();
             }
 
-            return exerciceList;
+            return movementList;
         }
 
-        public Exercice GetExercieByName(string exerciceName)
+        public async Task CreateMovement(Movement movement)
         {
-            return exerciceList.FirstOrDefault(x => x.Name == exerciceName);
+
+            string url = ServerAdress + "/" + Controllers.Movement_ControllerName + "/" + Methods.PostNewMovement_MethodName;
+            HttpResponseMessage response = await httpClient.PostAsJsonAsync(url, movement);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+            }
+        }
+
+        public async Task UpdateMovement(string id, Movement movement)
+        {
+
+            string url = ServerAdress + "/" + Controllers.Movement_ControllerName + "/" + Methods.PostNewMovement_MethodName;
+            HttpResponseMessage response = await httpClient.PutAsJsonAsync(url, (id,movement));
+
+            if (response.IsSuccessStatusCode)
+            {
+
+            }
+        }
+
+        public async Task<Movement> GetMovementById()
+        {
+            Movement movement = null;
+
+            string url = ServerAdress + "/" + Controllers.Movement_ControllerName + "/" + Methods.GetMovementById_MethodName;
+            HttpResponseMessage response = await httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                movement = await response.Content.ReadFromJsonAsync<Movement>();
+            }
+
+            return movement;
+        }
+
+
+        public Movement GetMovementByName(string movementName)
+        {
+            return movementList.FirstOrDefault(x => x.Name == movementName);
+        }
+
+
+        public async Task DeleteExerice(string id)
+        {
+            string url = ServerAdress + "/" + Controllers.Movement_ControllerName + "/" + Methods.DeleteMovementById_MethodName + "/" + id;
+            HttpResponseMessage response = await httpClient.DeleteAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+            }
         }
     }
 }
